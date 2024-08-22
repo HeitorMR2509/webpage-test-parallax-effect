@@ -1,0 +1,54 @@
+/*
+ * || Configurações globais
+ */
+:root {
+  --mountain-parallax-animation-screen-height: 2;
+}
+
+/*
+ * || Preparação do corpo da página para o efeito parallax.
+ */
+
+body {
+  min-height: 100dvh;
+  min-height: 100vh;
+  font-family: Tahoma, Verdana, sans-serif;
+}
+
+/*
+ * || Seção do efeito parallax com uma montanha que abaixa devagar.
+ */
+.mountain-parallax-effect {
+  --_animation-height: var(--mountain-parallax-animation-screen-height, 1);
+
+  height: calc(100dvh * var(--_animation-height));
+  height: calc(100vh * var(--_animation-height));
+}
+
+.mountain-parallax-effect-wrapper {
+  height: 100dvh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  position: relative;
+}
+
+.mountain-transparent-image {
+  --_scale: 2;
+  width: 100%;
+  scale: var(--_scale);
+  transition: scale 0.3s ease;
+  z-index: 1;
+}
+
+.mountain-parallax-test-text {
+  font-size: clamp(3em, 9vw - 1rem, 8em);
+  font-weight: bold;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  text-wrap: nowrap;
+}
